@@ -36,18 +36,4 @@ services:
     environment:
       - PHP_IDE_CONFIG
       - XDEBUG_CONFIG
-      - TEMPLATE_NAME
-
-  encore:
-    build:
-      context: ./templates/frontOffice/${TEMPLATE_NAME}
-      target: thelia_encore
-    container_name: docker-thelia-encore
-    working_dir: /application/templates/frontOffice/${TEMPLATE_NAME}
-    environment:
-      BROWSERSYNC_PROXY: http://localhost:8081
-    volumes:
-      - ./templates/frontOffice/${TEMPLATE_NAME}:/application/templates/frontOffice/${TEMPLATE_NAME}:delegated
-      - ./templates/frontOffice/${TEMPLATE_NAME}/node_modules:/application/templates/frontOffice/${TEMPLATE_NAME}/node_modules
-    ports:
-      - 8081:8081
+      - ACTIVE_FRONT_TEMPLATE
